@@ -73,3 +73,14 @@ Multicollinearity makes it **hard to interpret** coefficients and **unstable pre
   - **Transformations (log, square root, etc.)** for linearity.
   - **Removing correlated variables** to handle multicollinearity.
   - **Robust regression techniques** for heteroscedasticity.
+-----------------------------------------------
+
+##df1_copy['Classes']=np.where(df1_copy['Classes'].str.contains('not fire'),0,1),same operation with pandas
+we can write it using lambda,map,replace
+1)using .apply() with lambda:
+  df1_copy['Classes'] = df1_copy['Classes'].apply(lambda x: 0 if 'not fire' in x else 1)
+2)using map:
+    df1_copy['Classes'] = df1_copy['Classes'].str.contains('not fire').map({True: 0, False: 1})
+3)using replace:
+  df1_copy['Classes'] = df1_copy['Classes'].replace({'not fire': 0}).fillna(1)
+

@@ -1,0 +1,75 @@
+#overfitting and underfitting and how to avoid and overcome it
+
+Overfitting (High Variance) Occurs when a model learns noise instead of patterns, performing well on training data but poorly on unseen data.
+More Data: Collect or augment more data to reduce model sensitivity to noise.
+Regularization:Use L1 (Lasso) or L2 (Ridge) regularization to penalize complex models.
+Dropout (for Neural Networks):** Randomly drop neurons during training to prevent reliance on specific paths.
+Early Stopping: Stop training when validation loss starts increasing.
+Cross-Validation: Use techniques like k-fold cross-validation to ensure model generalizability.
+Feature Selection: Remove irrelevant or redundant features to simplify the model.
+Underfitting (High Bias) Occurs when a model is too simple and fails to capture the underlying patterns in the data.
+Increase Model Complexity: Use more layers (for deep learning) or a more sophisticated model.
+Feature Engineering: Create new meaningful features from existing data.
+Reduce Regularization: If regularization is too strong, relax it to allow the model to learn better.
+Train Longer: In deep learning, let the model train longer with proper monitoring.
+Use More Features: Ensure that the model has enough informative features to learn from.
+By balancing complexity and generalization through these methods, you can improve model performance and avoid both overfitting and underfitting.
+
+
+** Assumptions in Linear Regression**  
+
+Linear regression relies on several key assumptions to ensure that the model provides accurate and reliable results. Violating these assumptions can lead to biased estimates and incorrect conclusions.
+
+---
+
+Linearity:  
+Assumption:The relationship between the independent variables (X) and the dependent variable (Y) is linear.  
+If the relationship is non-linear, linear regression will not capture the pattern correctly.
+
+🔹 **How to Check?**  
+- Plot **scatter plots** of X vs. Y.
+- Use **residual plots** (residuals should be randomly scattered around 0).
+- Apply **polynomial regression** if needed.
+---
+
+**Independence of Errors**  
+Assumption: Residuals (errors) should be independent of each other.  
+If errors are correlated, it indicates autocorrelation, which is common in time series data.
+
+ **How to Check?**  
+- Durbin-Watson test (value close to 2 means no autocorrelation).
+- Plot residuals over time(should not show patterns).  
+
+**Homoscedasticity (Constant Variance of Errors)**  
+Assumption:The variance of residuals **remains constant** across all values of X.
+If variance changes (heteroscedasticity), predictions may be **unstable**.
+
+**How to Check?**  
+- **Residual vs. Fitted Plot** (should be randomly spread).
+- **Breusch-Pagan test** (detects heteroscedasticity).
+
+---
+
+**Normality of Residuals**  
+Assumption:Residuals should be **normally distributed**.
+Normality ensures reliable confidence intervals and hypothesis testing.
+
+**How to Check?**  
+- Histogram of residuals(should be bell-shaped).  
+- Q-Q Plot (should follow a straight line).
+- shapiro-Wilk test (statistical normality test).
+---
+
+**No Multicollinearity**  
+Assumption:Independent variables should not be **highly correlated**. 
+Multicollinearity makes it **hard to interpret** coefficients and **unstable predictions**.
+
+**How to Check?**  
+- **Variance Inflation Factor (VIF)** (VIF > 10 means multicollinearity).
+- **Correlation matrix** (check high correlations between X variables).
+--------------
+- If assumptions hold, linear regression works well.
+- If violated, consider:
+  - **Transformations (log, square root, etc.)** for linearity.
+  - **Removing correlated variables** to handle multicollinearity.
+  - **Robust regression techniques** for heteroscedasticity.

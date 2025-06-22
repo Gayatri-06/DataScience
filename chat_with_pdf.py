@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-api_key = "AIzaSyDzfdHeSJceZWhuf4b7UigyBXuUx1GucTM"
+api_key = "paste your api key"
 
 api_key = os.environ["GOOGLE_API_KEY"]
 
